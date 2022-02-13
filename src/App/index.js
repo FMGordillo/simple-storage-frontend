@@ -12,10 +12,11 @@ function App() {
 
   useEffect(() => {
     if (window.ethereum) {
+      console.log(process.env.REACT_APP_CONTRACT)
       const _provider = new providers.Web3Provider(window.ethereum, 'any')
       const _contract = SimpleStorage({
-        address: '0xbe9cF0c23A0A0d4c63c6Ce76662Cc0E5D4f7759e',
         provider: _provider,
+        address: process.env.REACT_APP_CONTRACT,
       })
       setProvider(_provider)
       setContract(_contract)
